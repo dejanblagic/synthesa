@@ -1,0 +1,26 @@
+@import "colors";
+@import "spacing";
+@import "typography";
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: $px-14;
+}
+
+body {
+    @include text-md;
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-between;
+    align-items: left;
+    color: $color-gray-dark;
+    background-color: $color-background;
+    box-sizing: border-box;
+}

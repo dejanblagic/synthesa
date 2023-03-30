@@ -1,0 +1,40 @@
+<%- include('includes/header') %>
+
+    <section class="post-section">
+        <%- include('includes/flash') %>
+        
+        <div class="contain-row-fill">
+            <% if (concept.isOwner) { %>
+                <div class="contain-row">
+                    <a class="button-icon" href="/concept/<%= concept._id %>/edit">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="synth-sign" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
+                            <path d="M13.5 6.5l4 4"></path>
+                         </svg>
+                    </a>
+                    <form action="/concept/<%= concept._id %>/delete" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button class="button-icon" title="Delete">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="synth-sign" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M4 7l16 0"></path>
+                                <path d="M10 11l0 6"></path>
+                                <path d="M14 11l0 6"></path>
+                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                             </svg>
+                            </button>
+                    </form>
+                </div>
+            <% } %>
+        </div>   
+
+        <div class="card-post-b" style="background-color: <%= concept.category.color %>">
+            <h4 class="subheading"><%= concept.category.title.toUpperCase() %></h4>
+            <h1 class="heading-m"><%= concept.title %></h1>
+        </div>
+        <div class="text-rg-read"><%- filterUserHTML(concept.body) %></div>
+    </section>
+
+<%- include('includes/footer') %>

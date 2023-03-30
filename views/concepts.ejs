@@ -1,0 +1,33 @@
+<%- include('includes/header-concepts') %>
+        
+     <section class="section">
+        <div class="card-post-line">
+            <h1 class="heading-i">Concepts</h1>
+            <div class="contain-grid">
+                <div class="button-reference" onclick="renderConcepts(concepts)">All</div>
+                <% categories.forEach(function(category) { %>
+                    <div onclick="filterConcepts('<%= category._id %>')" class="button-reference">
+                        <div class="badge" style="background: <%= category.color %>"></div>
+                        <%= category.title %></div>
+                <% }) %>
+            </div>
+        </div>
+        <div class="contain-column">
+            <% concepts.forEach(function(concept) { %>
+                <a href="/concept/<%= concept._id %>" class="card-concept-row">
+                    <div class="contain-row-fill">
+                        <div class="contain-row">
+                            <div class="badge" style="background: <%= concept.category.color %>"></div>
+                            <h2 class="heading-xs"><%= concept.title %></h2>
+                        </div>
+                        <h4 class="subheading left-12"><%= concept.category.title.toUpperCase() %></h4>
+                    </div>
+                    <div class="contain-row">
+                        <p class="text-rg-gray left-12"><%= concept.description %></p>
+                    </div>
+                </a>
+            <% }) %>
+            </div>
+    </section>
+ 
+<%- include('includes/footer') %>

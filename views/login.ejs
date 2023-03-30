@@ -1,0 +1,14 @@
+<%- include('includes/header') %>
+
+    <section class="section">
+        <form action="/synths" method="POST" class="contain-column">
+            <h3 class="heading-l">Admin Sign In</h3>
+            <input name="username" type="text" placeholder="Username" class="input">
+            <input name="password" type="password" placeholder="Password" class="input">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button type="submit" class="button-primary">Sign In</button>
+        </form>
+        <%- include('includes/flash') %>        
+    </section>
+
+<%- include('includes/footer') %>

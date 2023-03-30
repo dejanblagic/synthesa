@@ -1,0 +1,49 @@
+<%- include('includes/header') %>
+
+    <section class="section">
+        <%- include('includes/flash') %>
+        <form action="/post/<%= post._id %>/edit" method="POST" class="box-editor">
+            <h2 class="heading-s">Editing: </h2>
+            <div class="contain-row">
+                <% if(post.conceptFirst) { %>
+                <h2 class="heading-m"><%= post.conceptFirst.title %></h2>
+                <% } else { %>
+                <h2 class="heading-m">Undefined</h2>
+                <% } %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="synth-sign" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M17 10h-14l4 -4"></path>
+                    <path d="M7 14h14l-4 4"></path>
+                 </svg>
+                 <% if(post.conceptSecond) { %>
+                <h2 class="heading-m"><%= post.conceptSecond.title %></h2>
+                <% } else { %>
+                <h2 class="heading-m">Undefined</h2>
+                <% } %>
+            </div>
+
+            <select name="conceptFirst" class="dropdown-select">
+                <% concepts.forEach(function(concept) { %>
+                  <option value="<%= concept._id %>" class="dropdown-option"><%= concept.title %></option>
+                <% }) %>
+                <% const randomFirst = concepts[Math.floor(Math.random() * concepts.length)] %>
+                <option value="<%= randomFirst %>"><%= randomFirst.title %></option>
+            </select>
+            <select name="conceptSecond" class="dropdown-select">
+                <% concepts.forEach(function(concept) { %>
+                  <option value="<%= concept._id %>" class="dropdown-option"><%= concept.title %></option>
+                <% }) %>
+                <% const randomSecond = concepts[Math.floor(Math.random() * concepts.length)] %>
+                <option value="<%= randomSecond %>"><%= randomSecond.title %></option>
+            </select>
+            <textarea name="description" id="" cols="30" rows="5" type="text" placeholder="Write short description..." class="input"><%= post.description %></textarea>
+            <textarea name="body" id="" cols="30" rows="10" type="text" placeholder="Write main text here..." class="textarea"><%= post.body %></textarea>
+            <div class="contain-row">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit" class="button-primary">Save Updates</button>
+                <a href="/post/<%= post._id %>" class="button-ghost">Cancel</a>
+            </div>
+        </form>
+    </section>
+    
+<%- include('includes/footer') %>

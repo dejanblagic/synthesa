@@ -1,0 +1,23 @@
+.dropdown-select {
+    @include text-md;
+    padding: $px-14;
+    border: 1px solid $color-gray-light;
+    border-radius: $px-8;
+    outline: none;
+    width: 100%;
+    background: none;
+}
+
+.dropdown-option {
+    @include text-rg;
+    padding: $px-8;
+    border: 1px solid $color-gray-light;
+    border-radius: $px-8;
+    outline: none;
+    width: 100%;
+    background: none;
+
+    &:hover {
+        background: $color-background;
+    }
+}

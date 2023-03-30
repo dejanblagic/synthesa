@@ -1,0 +1,16 @@
+<%- include('includes/header') %>
+
+    <section class="section">
+        <form action="/category-editor" method="POST" class="box-editor">
+            <h1 class="heading-m">Create new category</h1>
+            <input name="title" type="text" placeholder="Insert category name" class="input">
+            <input name="color" type="text" placeholder="Insert HEX code of color" class="input">
+            <div class="contain-row">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit" class="button-primary">Create category</button>
+                <a href="/" class="button-ghost">Cancel</a>
+            </div>
+        </form>
+    </section>
+    
+<%- include('includes/footer') %>

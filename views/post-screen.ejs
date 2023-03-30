@@ -1,0 +1,73 @@
+<%- include('includes/header') %>
+
+    <section class="post-section">
+        <%- include('includes/flash') %>
+        
+        <div class="contain-row-fill">
+            <% if (post.isOwner) { %>
+                <div class="contain-row">
+                    <a class="button-icon" href="/post/<%= post._id %>/edit" title="Edit">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="synth-sign" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
+                            <path d="M13.5 6.5l4 4"></path>
+                         </svg>
+                    </a>
+                    <form action="/post/<%= post._id %>/delete" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button class="button-icon" title="Delete">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="synth-sign" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M4 7l16 0"></path>
+                                <path d="M10 11l0 6"></path>
+                                <path d="M14 11l0 6"></path>
+                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                             </svg>
+                        </button>
+                    </form>
+                </div>
+            <% } %>
+        </div>     
+        <div class="card-post-b" style="background: linear-gradient(45deg, <%= post.categoryFirst.color %>, <%= post.categorySecond.color %>)">
+            <h4 class="subheading">by <%= post.author.username %></h4>
+
+            <h1 class="heading-m">
+                <% if(post.conceptFirst) { %>
+                <span><%= post.conceptFirst.title %></span>
+                <% } else { %>
+                <span>Undefined</span>
+                <% } %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="synth-sign move-4" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M17 10h-14l4 -4"></path>
+                    <path d="M7 14h14l-4 4"></path>
+                 </svg>
+                 <% if(post.conceptSecond) { %>
+                <span><%= post.conceptSecond.title %></span>
+                <% } else { %>
+                <span>Undefined</span>
+                <% } %>
+            </h1>
+            <h4 class="subheading"><%= post.createdDate.toLocaleString('default', { month: 'short'}).toUpperCase() %> <%= post.createdDate.getDate() %>, <%= post.createdDate.getFullYear() %></h4>   
+        </div>
+
+        <div class="card-post-line">
+            <p class="subheading-l">Abstract</p>
+            <em class="text-rg-desc" style="padding: 0;"><%- filterUserHTML(post.description) %></em>
+            <p class="subheading-l">Keywords</p>
+            <div class="contain-grid">
+                <a href="/concept/<%= post.conceptFirst._id %>" class="button-reference">
+                    <div class="badge" style="background: <%= post.categoryFirst.color%>"></div>
+                    <%= post.conceptFirst.title %>
+                </a>
+                <a href="/concept/<%= post.conceptSecond._id %>" class="button-reference">
+                    <div class="badge" style="background: <%= post.categorySecond.color %>"></div>
+                    <%= post.conceptSecond.title %>
+                </a>
+            </div>
+        </div>
+        <div class="text-rg-read"><%- filterUserHTML(post.body) %></div>
+    </section>
+
+    <%- include('includes/footer') %>

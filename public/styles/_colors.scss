@@ -1,0 +1,36 @@
+// COLORS
+$color-white:#fff;
+$color-black: #121212;
+$color-read: #363636;
+$color-gray-dark: #646464;
+$color-gray-medium: #a2a2a2;
+$color-gray-light: #e0e0e0;
+$color-background: #F4f4f4;
+
+// GRADIENTS
+$gradient-sunrise: linear-gradient(90deg, rgba(255, 211, 25, 0.12) 0%, rgba(255, 41, 117, 0.12) 50%, rgba(140, 30, 255, 0.12) 100%);
+$gradient-redblue: linear-gradient(90deg, rgba(255, 41, 41, 0.14) 0%, rgba(30, 105, 255, 0.14) 100%);
+$gradient-synthwave: linear-gradient(45deg, #a7edfa 0%, #8ce6ee 25%, #f0c5df 75%, #c86d95 100%);
+$gradient-blue: linear-gradient(91.15deg, #DDF4F3 0%, #EFE2FF 100%);
+
+
+// CATEGORIES
+.category-blue {
+    background-color: blue;
+}
+
+.category-green {
+    background-color: green;
+}
+
+.category-red {
+    background-color: red;
+}
+
+.category-yellow {
+    background-color: yellow;
+}
+
+.category-purple {
+    background-color: purple;
+}

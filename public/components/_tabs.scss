@@ -1,0 +1,12 @@
+.tab {
+    @include text-rg;
+    padding: $px-8 $px-14;
+    border-radius: $px-8;
+    color: $color-gray-dark;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        background: $color-gray-light;
+    }
+}

@@ -1,0 +1,105 @@
+// FONT FAMILIES
+$lora: 'Lora', serif;
+$inter: 'Inter', sans-serif;
+$mono: 'IBM Plex Mono', monospace;
+
+// WEIGHTS
+$bold: 700;
+$semibold: 600;
+$medium: 500;
+$regular: 400;
+
+@mixin heading-l {
+    font-family: $mono;
+    font-weight: $semibold;
+    font-size: $px-32;
+    line-height: $px-36;
+    margin: 0;
+}
+
+@mixin heading-m {
+    font-family: $mono;
+    font-weight: $semibold;
+    font-size: $px-24;
+    line-height: $px-28;
+    margin: 0;
+
+    @include respond-phone {
+        font-size: $px-18;
+        line-height: $px-28;
+    }
+}
+
+@mixin heading-s {
+    font-family: $mono;
+    font-weight: $semibold;
+    font-size: $px-18;
+    line-height: $px-24;
+    margin: 0;
+}
+
+@mixin heading-xs {
+    font-family: $mono;
+    font-weight: $semibold;
+    font-size: $px-16;
+    line-height: $px-24;
+    margin: 0;
+}
+
+@mixin heading-i {
+    font-family: $inter;
+    font-weight: $semibold;
+    font-size: $px-18;
+    line-height: $px-24;
+    margin: 0;
+}
+
+@mixin subheading {
+    font-family: $inter;
+    font-weight: $medium;
+    font-size: $px-12;
+    line-height: $px-16;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+@mixin subheading-l {
+    font-family: $inter;
+    font-weight: $semibold;
+    font-size: $px-14;
+    line-height: $px-20;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+@mixin text-sb {
+    font-family: $inter;
+    font-weight: $semibold;
+    font-size: $px-14;
+    line-height: $px-20;
+    margin: 0;
+}
+
+@mixin text-md {
+    font-family: $inter;
+    font-weight: $medium;
+    font-size: $px-14;
+    line-height: $px-20;
+    margin: 0;
+}
+
+@mixin text-rg {
+    font-family: $inter;
+    font-weight: $regular;
+    font-size: $px-14;
+    line-height: $px-20;
+    margin: 0;
+}
+
+@mixin text-rg-read {
+    font-family: $inter;
+    font-weight: $regular;
+    font-size: $px-18;
+    line-height: $px-28;
+    margin: 0;
+}

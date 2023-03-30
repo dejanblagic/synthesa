@@ -1,0 +1,80 @@
+.heading-l {
+    @include heading-l;
+    color: $color-black;
+}
+
+.heading-m {
+    @include heading-m;
+    color: $color-black;
+}
+
+.heading-s {
+    @include heading-s;
+    color: $color-black;
+}
+
+.heading-xs {
+    @include heading-xs;
+    color: $color-black;
+}
+
+.heading-i {
+    @include heading-i;
+    color: $color-gray-dark;
+}
+
+.subheading {
+    @include subheading;
+    color: $color-gray-dark;
+}
+
+.subheading-l {
+    @include subheading;
+    color: $color-gray-dark;
+    text-transform: uppercase;
+}
+
+.text-sb {
+    @include text-sb;
+    color: $color-gray-dark;
+}
+
+.text-md {
+    @include text-md;
+    color: $color-gray-dark;
+}
+
+.text-rg-black {
+    @include text-rg;
+    color: $color-black;
+}
+
+.text-rg-gray {
+    @include text-rg;
+    color: $color-gray-dark;
+}
+
+.text-rg-short {
+    @include text-rg;
+    color: $color-gray-dark;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-rg-read {
+    @include text-rg-read;
+    color: $color-black;
+    padding: $px-16;
+}
+
+.text-rg-desc {
+    @include text-rg-read;
+    color: $color-gray-dark;
+    padding: $px-4 $px-16;
+}
+
+.synth-sign {
+    color: $color-gray-dark;
+}

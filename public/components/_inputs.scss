@@ -1,0 +1,20 @@
+.input {
+    @include text-md;
+    padding: $px-14;
+    border: 1px solid $color-gray-light;
+    border-radius: $px-8;
+    outline: none;
+    width: 100%;
+    background: none;
+}
+
+.textarea {
+    @include text-md;
+    padding: $px-14;
+    border: 1px solid $color-gray-light;
+    border-radius: $px-8;
+    outline: none;
+    width: 100%;
+    height: 480px;
+    background: none;
+}

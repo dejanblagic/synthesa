@@ -1,0 +1,19 @@
+.toaster-error {
+    @include flex-row-hug;
+    gap: $px-14;
+    padding: $px-14;
+    background-color: #FFE0E0;
+    color: red;
+    border-radius: $px-8;
+    margin-top: $px-14;
+}
+
+.toaster-success {
+    @include flex-row-hug;
+    gap: $px-14;
+    padding: $px-14;
+    background-color: greenyellow;
+    color: green;
+    border-radius: $px-8;
+    margin-top: $px-14;
+}

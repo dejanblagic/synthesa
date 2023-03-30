@@ -1,0 +1,25 @@
+<%- include('includes/header') %>
+
+    <section class="section">
+        <form action="/concept-editor" method="POST" class="box-editor">
+            <h1 class="heading-m">Create new concept</h1>
+            <input name="title" type="text" placeholder="Insert first title" class="input">
+            <textarea name="description" id="" cols="30" rows="5" type="text" placeholder="Write short description..." class="input"></textarea>
+            
+            <% categories.forEach(function(category) { %>
+                <div class="box-tabs">
+                    <input type="radio" name="category" value="<%= category._id %>">
+                    <span><%= category.title %></span>
+                </div>
+            <% }) %>
+    
+            <textarea name="body" id="" cols="30" rows="10" type="text" placeholder="Write main text here..." class="textarea"></textarea>
+            <div class="contain-row">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit" class="button-primary">Create concept</button>
+                <a href="/" class="button-ghost">Cancel</a>
+            </div>
+        </form>
+    </section>
+    
+<%- include('includes/footer') %>

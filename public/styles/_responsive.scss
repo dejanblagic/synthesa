@@ -1,0 +1,10 @@
+// media query
+/*
+0 - 600px - phone
+600 - 712px - tablet
+712px - above - desktop
+*/
+
+@mixin respond-phone {
+    @media (max-width: 712px) { @content }
+}

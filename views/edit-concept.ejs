@@ -1,0 +1,24 @@
+<%- include('includes/header') %>
+
+    <section class="section">
+        <%- include('includes/flash') %>
+        <form action="/concept/<%= concept._id %>/edit" method="POST" class="box-editor">
+            <h2 class="heading-s">Editing: </h2>
+            <input name="title" type="text" placeholder="Insert first title" class="input" value="<%= concept.title %>">
+            <textarea name="description" id="" cols="30" rows="5" type="text" placeholder="Write short description..." class="input"><%= concept.description %></textarea>
+            <% categories.forEach(function(category) { %>
+                <div class="box-tabs">
+                    <input type="radio" name="category" value="<%= category._id %>">
+                    <span><%= category.title %></span>
+                </div>
+            <% }) %>
+            <textarea name="body" id="" cols="30" rows="10" type="text" placeholder="Write main text here..." class="textarea"><%= concept.body %></textarea>
+            <div class="contain-row">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit" class="button-primary">Save Updates</button>
+                <a href="/concept/<%= concept._id %>" class="button-ghost">Cancel</a>
+            </div>
+        </form>
+    </section>
+    
+<%- include('includes/footer') %>

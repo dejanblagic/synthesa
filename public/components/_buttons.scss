@@ -1,0 +1,73 @@
+.button-primary {
+    @include text-sb;
+    background: $color-white;
+    color: $color-black;
+    border: 1px solid $color-gray-light;
+    border-radius: $px-8;
+    padding: $px-8 $px-14;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        background: $color-gray-light;
+    }
+}
+
+.button-ghost {
+    @include text-sb;
+    background: none;
+    color: $color-black;
+    border: none;
+    border-radius: $px-8;
+    padding: $px-8 $px-14;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        background: $color-gray-light;
+    }
+}
+
+.button-link {
+    @include text-sb;
+    color: $color-black;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.button-icon {
+    display: flex;
+    align-items: center;
+    padding: $px-4;
+    border: none;
+    border-radius: $px-8;
+    cursor: pointer;
+    background: none;
+
+    &:hover {
+        background: $color-gray-light;
+    }
+}
+
+.button-reference {
+    @include flex-row;
+    @include text-sb;
+    gap: $px-8;
+    background: $color-white;
+    color: $color-black;
+    border: none;
+    border-radius: $px-4;
+    padding: $px-4 $px-8;
+    text-decoration: none;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+
+    &:hover {
+        background: $color-background;
+    }
+}

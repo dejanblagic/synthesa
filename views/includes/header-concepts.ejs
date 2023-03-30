@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <title>Synthesa | Chemistry of Essays</title>
+    <script>
+        let concepts = <%- JSON.stringify(concepts) %>;
+        function filterConcepts(categoryId) {
+            let filteredConcepts = concepts.filter(concept => concept.category._id == categoryId);
+            renderConcepts(filteredConcepts);
+        }
+
+        function renderConcepts(concepts) {
+            let conceptsHTML = "";
+            concepts.forEach(function(concept) {
+                conceptsHTML += `<a href="/concept/${concept._id}" class="card-concept-row">
+                                    <div class="contain-row-fill">
+                                        <div class="contain-row">
+                                            <div class="badge" style="background: ${concept.category.color}"></div>
+                                            <h2 class="heading-xs">${concept.title}</h2>
+                                        </div>
+                                        <h4 class="subheading">${concept.category.title.toUpperCase()}</h4>
+                                    </div>
+                                    <div class="contain-row">
+                                        <p class="text-rg-gray" style="padding-left: 12px;">${concept.description}</p>
+                                    </div>
+                                </a>`;
+            });
+            document.querySelector('.contain-column').innerHTML = conceptsHTML;
+        }
+    </script>
+</head>
+<body>
+<header class="header">
+
+    <% if (user) { %>
+        <form action="/logout" method="POST" class="box-tabs margin-auto">
+            <a href="/" class="button-icon">
+                <img src="/logo.svg" alt="Synthesa Logo" class="logo">
+            </a>
+            <a href="/" class="button-ghost">Synths</a>
+            <a href="/concepts" class="button-ghost">Concepts</a>
+            <a href="/about" class="button-ghost">About</a>
+            <a href="/editor" class="button-ghost">New synth</a>
+            <a href="/concept-editor" class="button-ghost">New concept</a>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button class="button-ghost">Sign Out</button>
+            <a href="#" class="button-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="synth-sign" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+                 </svg>
+            </a>
+        </form>
+    <% } else { %>
+        <nav class="box-tabs margin-auto">
+            <a href="/" class="button-icon">
+                <img src="/logo.svg" alt="Synthesa Logo" class="logo">
+            </a>
+            <a href="/" class="button-ghost">Synths</a>
+            <a href="/concepts" class="button-ghost">Concepts</a>
+            <a href="/about" class="button-ghost">About</a>
+        </nav>
+    <% } %>
+
+</header>
